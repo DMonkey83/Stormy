@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StormyActivity"
+    android:background="@drawable/bg_gradient">
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/temperature_label"
+        android:text="--"
+        android:textSize="150sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/degree_image_view"
+        android:layout_toRightOf="@+id/temperature_label"
+        android:layout_alignTop="@+id/temperature_label"
+        android:src="@drawable/degree"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/temperature_label"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/time"
+        android:textColor="#80ffffff"
+        android:text="..."
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/location_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:textSize="24sp"
+        android:text="@string/location_text"/>
+
+    <ImageView
+        android:id="@+id/weather_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/location_label"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/cloudy_night"/>
+
+    <LinearLayout
+        android:layout_below="@id/temperature_label"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:id="@+id/temp_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        >
+        <LinearLayout
+            android:layout_below="@id/temperature_label"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:id="@+id/humidity_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/humidity_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="@string/humidity_text"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/humidity_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:text="--"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/temperature_label"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:id="@+id/perspiratioh_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_weight="1"
+            android:layout_marginLeft="44dp">
+            <TextView
+                android:id="@+id/perspiration_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:text="@string/precip_text"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/perspiration_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:text="--"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/summary_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temp_layout"
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffff"
+        android:text="@string/stormy_text"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/location_label"
+        android:id="@+id/update_view"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/refresh"
+        android:layout_marginBottom="20dp"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/location_label"
+        android:id="@+id/update_bar"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/refresh"
+        android:layout_marginBottom="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_layout"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hourly_button"
+            android:text="@string/hourly_text"
+            android:background="#40ffffff"
+            android:textColor="#ffffff"
+            android:layout_marginRight="2dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/daily_button"
+            android:text="@string/daily_text"
+            android:background="#40ffffff"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
